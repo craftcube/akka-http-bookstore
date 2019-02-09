@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.craft</groupId>
+    <artifactId>akka-http-bookstore</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <java.version>1.8</java.version>
+        <scala.version>2.12.8</scala.version>
+        <scala.compactVersion>2.12</scala.compactVersion>
+        <akka.version>2.5.19</akka.version>
+        <akkahttp.version>10.1.7</akkahttp.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_${scala.compactVersion}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-stream_${scala.compactVersion}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http_${scala.compactVersion}</artifactId>
+            <version>${akkahttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http-spray-json_${scala.compactVersion}</artifactId>
+            <version>${akkahttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pauldijou</groupId>
+            <artifactId>jwt-core_2.12</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.typesafe.slick/slick -->
+        <dependency>
+            <groupId>com.typesafe.slick</groupId>
+            <artifactId>slick_2.12</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.slick/slick-hikaricp -->
+        <dependency>
+            <groupId>com.typesafe.slick</groupId>
+            <artifactId>slick-hikaricp_2.12</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <!--<dependency>-->
+            <!--<groupId>org.postgresql</groupId>-->
+            <!--<artifactId>postgresql</artifactId>-->
+            <!--<version>9.4-1201-jdbc41</version>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.25</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.t3hnar/scala-bcrypt -->
+        <dependency>
+            <groupId>com.github.t3hnar</groupId>
+            <artifactId>scala-bcrypt_2.12</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.lihaoyi/scalatags -->
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>scalatags_2.12</artifactId>
+            <version>0.6.7</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_${scala.compactVersion}</artifactId>
+            <version>${akka.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-stream-testkit_${scala.compactVersion}</artifactId>
+            <version>${akka.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http-testkit_${scala.compactVersion}</artifactId>
+            <version>${akkahttp.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.0.5</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <targetPath>${basedir}/target/classes</targetPath>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.conf</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.bak</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/resources</directory>
+                                    <includes>
+                                        <include>**/*.*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
